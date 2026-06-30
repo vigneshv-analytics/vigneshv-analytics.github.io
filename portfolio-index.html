@@ -1,0 +1,280 @@
+<!--
+  VIGNESH V — PORTFOLIO STARTER
+  --------------------------------
+  HOW TO USE:
+  1. Rename this file to  index.html
+  2. Upload it to a GitHub repo named  <your-username>.github.io
+  3. Settings > Pages > deploy from main branch (root)
+  4. Visit https://<your-username>.github.io
+
+  TO EDIT: search for the word  EDIT  in the comments below.
+  All the text you'll want to change is marked.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vignesh V — Business Intelligence &amp; Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F7F9;
+    --ink:#16202B;
+    --muted:#5B6875;
+    --line:#DDE3E9;
+    --accent:#0F766E;
+    --accent-soft:#E4F0EE;
+    --signal:#1F9D57;
+    --card:#FFFFFF;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  /* mono eyebrow — echoes a SQL comment, tying the page to the craft */
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:13px;
+    letter-spacing:.02em;
+    color:var(--accent);
+    text-transform:lowercase;
+    margin:0 0 14px;
+  }
+
+  /* ---------- HERO ---------- */
+  header{padding:96px 0 56px;border-bottom:1px solid var(--line);}
+  h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:700;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin:0 0 20px;
+    max-width:18ch;
+  }
+  h1 .hl{color:var(--accent);}
+  .lede{font-size:clamp(17px,2.4vw,20px);color:var(--muted);max-width:60ch;margin:0 0 32px;}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    font-family:"IBM Plex Mono",monospace;font-size:14px;
+    text-decoration:none;padding:11px 18px;border-radius:8px;
+    border:1px solid var(--ink);color:var(--ink);background:transparent;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.primary:hover{background:var(--accent);border-color:var(--accent);}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+
+  /* ---------- METRIC READOUT (the data-ink signature) ---------- */
+  .readout{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;margin:56px 0 0;border-top:1px solid var(--line);
+  }
+  .stat{padding:22px 20px 4px;border-right:1px solid var(--line);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:30px;letter-spacing:-0.01em;}
+  .stat .num .delta{color:var(--signal);font-size:18px;}
+  .stat .lbl{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:4px;}
+  @media(max-width:640px){.readout{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.01em;margin:0 0 24px;}
+
+  .role{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:6px;}
+  .role .title{font-weight:600;}
+  .role .when{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);white-space:nowrap;}
+  .role-desc{color:var(--muted);margin:0 0 26px;}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:13px;background:var(--accent-soft);color:var(--accent);
+    padding:6px 12px;border-radius:6px;}
+  .chip-group-label{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin:0 0 8px;}
+
+  /* ---------- PROJECTS ---------- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:640px){.cards{grid-template-columns:1fr;}}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;
+    transition:transform .15s ease, box-shadow .15s ease;display:flex;flex-direction:column;}
+  .pcard:hover{transform:translateY(-3px);box-shadow:0 10px 30px -16px rgba(20,32,43,.25);}
+  .pcard .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--muted);margin-bottom:10px;}
+  .pcard .tag.live{color:var(--signal);}
+  .pcard h3{font-family:"Space Grotesk",sans-serif;font-size:19px;margin:0 0 8px;}
+  .pcard p{color:var(--muted);font-size:15px;margin:0 0 16px;flex:1;}
+  .pcard a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);text-decoration:none;}
+  .pcard a.link:hover{text-decoration:underline;}
+  .pcard a.link:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-line{font-family:"IBM Plex Mono",monospace;font-size:15px;}
+  .contact-line a{color:var(--accent);text-decoration:none;}
+  .contact-line a:hover{text-decoration:underline;}
+  footer{padding:32px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px;}
+
+  /* ---------- motion (respect reduced-motion) ---------- */
+  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    [data-reveal]{opacity:1;transform:none;transition:none;}
+    .btn:hover,.pcard:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <!-- EDIT: eyebrow -->
+    <p class="eyebrow">-- portfolio / vignesh v</p>
+    <!-- EDIT: your answer-first headline. Lead with the value, not the job title. -->
+    <h1>I turn messy data into <span class="hl">decisions that move the metric.</span></h1>
+    <!-- EDIT: one or two lines of context -->
+    <p class="lede">Business Intelligence Analyst with ~5 years across Indeed and TCS. MBA + B.Tech. I own the analysis end-to-end — from SQL and experiments to the recommendation leadership acts on.</p>
+    <div class="actions">
+      <!-- EDIT: links -->
+      <a class="btn primary" href="https://github.com/DAwithVG" target="_blank" rel="noopener">View GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/vignesh-v-186993196" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:venkatachalamvignesh23@gmail.com">Email me</a>
+    </div>
+
+    <!-- METRIC READOUT — EDIT numbers to your confirmed figures.
+         (Kept to clean, defensible TCS metrics; add Indeed numbers once you confirm them.) -->
+    <div class="readout" data-reveal>
+      <div class="stat"><div class="num">~5<span style="font-size:16px;color:var(--muted)">yrs</span></div><div class="lbl">analytics experience</div></div>
+      <div class="stat"><div class="num"><span class="delta">&#9660;</span>75%</div><div class="lbl">less manual analysis time</div></div>
+      <div class="stat"><div class="num"><span class="delta">&#9660;</span>40%</div><div class="lbl">faster SQL queries</div></div>
+      <div class="stat"><div class="num">3+</div><div class="lbl">cross-functional teams</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== EXPERIENCE ===== -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 01 / experience</p>
+    <h2>Where I've worked</h2>
+
+    <div class="role">
+      <span class="title">Business Intelligence Analyst &middot; Indeed</span>
+      <span class="when">Nov 2024 — Present</span>
+    </div>
+    <p class="role-desc">Own dashboards and A/B experiments that help Product, Marketing, and Engineering decide what to build — and translate the analysis into something leadership can act on.</p>
+
+    <div class="role">
+      <span class="title">Data Analyst &middot; Tata Consultancy Services</span>
+      <span class="when">Jul 2021 — Oct 2024</span>
+    </div>
+    <p class="role-desc" style="margin-bottom:0;">Automated reporting and analysis workflows, cutting hours of manual work and speeding up the queries the team relied on.</p>
+  </div>
+</section>
+
+<!-- ===== TOOLKIT ===== -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 02 / toolkit</p>
+    <h2>What I work with</h2>
+
+    <p class="chip-group-label">languages &amp; querying</p>
+    <div class="chips">
+      <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
+    </div>
+    <p class="chip-group-label">warehousing &amp; databases</p>
+    <div class="chips">
+      <span class="chip">Snowflake</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">MS SQL Server</span>
+    </div>
+    <p class="chip-group-label">bi &amp; methods</p>
+    <div class="chips" style="margin-bottom:0;">
+      <span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">A/B Testing</span><span class="chip">Statistical Analysis</span><span class="chip">ETL</span><span class="chip">Data Modeling</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 03 / projects</p>
+    <h2>Selected work</h2>
+    <div class="cards">
+
+      <!-- EDIT: this is your in-progress flagship. Update the link when the repo is live. -->
+      <div class="pcard">
+        <span class="tag live">&#9679; in progress</span>
+        <h3>Business Diagnostic — E-Commerce</h3>
+        <p>A metric dropped — I work through <em>why</em>, segmenting by region, category, and time to isolate the driver, then write it up as a one-page recommendation.</p>
+        <a class="link" href="#" target="_blank" rel="noopener">repo coming soon →</a>
+      </div>
+
+      <div class="pcard">
+        <span class="tag">data engineering</span>
+        <h3>ETL Pipeline for BI Reporting</h3>
+        <p>Automated an end-to-end ETL workflow (SQL + Python + Snowflake) to clean, transform, and load raw data into reporting dashboards.</p>
+        <a class="link" href="https://github.com/DAwithVG" target="_blank" rel="noopener">view code →</a>
+      </div>
+
+      <div class="pcard">
+        <span class="tag">analysis</span>
+        <h3>Job Market Analytics</h3>
+        <p>Scraped and analyzed job postings to surface skill-demand, salary, and location trends; built a dashboard for recruiters and seekers.</p>
+        <a class="link" href="https://github.com/DAwithVG" target="_blank" rel="noopener">view code →</a>
+      </div>
+
+      <div class="pcard">
+        <span class="tag">analysis</span>
+        <h3>Product Recommendation Insights</h3>
+        <p>Analyzed customer purchase history to build a BI dashboard surfacing top cross-sell products.</p>
+        <a class="link" href="https://github.com/DAwithVG" target="_blank" rel="noopener">view code →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section style="border-bottom:none;">
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 04 / contact</p>
+    <h2>Let's talk</h2>
+    <p class="contact-line">
+      <a href="mailto:venkatachalamvignesh23@gmail.com">venkatachalamvignesh23@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/vignesh-v-186993196" target="_blank" rel="noopener">linkedin.com/in/vignesh-v</a><br>
+      <a href="https://github.com/DAwithVG" target="_blank" rel="noopener">github.com/DAwithVG</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; 2026 Vignesh V — built with a text editor and GitHub Pages.</div>
+</footer>
+
+<script>
+  // Gentle scroll reveal; disabled automatically for reduced-motion users via CSS.
+  const els = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
