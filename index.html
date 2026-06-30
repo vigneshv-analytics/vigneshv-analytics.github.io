@@ -1,1 +1,206 @@
+<!--
+  VIGNESH V — PORTFOLIO (Data & Analytics Engineer)
+  --------------------------------------------------
+  HOW TO USE:
+  1. Rename this file to  index.html
+  2. Upload it to a GitHub repo named  vigneshv-analytics.github.io
+  3. Settings > Pages > deploy from main branch (root)
+  4. Visit https://vigneshv-analytics.github.io
+  TO EDIT: search for the word  EDIT  in the comments below.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vignesh V — Data &amp; Analytics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F7F9; --ink:#16202B; --muted:#5B6875; --line:#DDE3E9;
+    --accent:#0F766E; --accent-soft:#E4F0EE; --signal:#1F9D57; --card:#FFFFFF; --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.02em;color:var(--accent);text-transform:lowercase;margin:0 0 14px;}
 
+  /* status pill */
+  .status{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:13px;
+    background:#E7F6EE;color:#16693E;border:1px solid #BFE6CF;padding:6px 13px;border-radius:999px;margin-bottom:22px;}
+  .status .dot{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 rgba(31,157,87,.5);animation:pulse 2.2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,157,87,.45);}70%{box-shadow:0 0 0 7px rgba(31,157,87,0);}100%{box-shadow:0 0 0 0 rgba(31,157,87,0);}}
+
+  /* hero */
+  header{padding:84px 0 56px;border-bottom:1px solid var(--line);}
+  h1{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(33px,5.6vw,54px);line-height:1.06;letter-spacing:-0.02em;margin:0 0 20px;max-width:20ch;}
+  h1 .hl{color:var(--accent);}
+  .lede{font-size:clamp(16px,2.3vw,19px);color:var(--muted);max-width:62ch;margin:0 0 30px;}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{font-family:"IBM Plex Mono",monospace;font-size:14px;text-decoration:none;padding:11px 18px;border-radius:8px;border:1px solid var(--ink);color:var(--ink);background:transparent;transition:transform .15s ease,background .15s ease,color .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.primary:hover{background:var(--accent);border-color:var(--accent);}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+
+  section{padding:54px 0;border-bottom:1px solid var(--line);}
+  h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:25px;letter-spacing:-0.01em;margin:0 0 24px;}
+
+  /* what I do — three pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:640px){.pillars{grid-template-columns:1fr;}}
+  .pillar h3{font-family:"Space Grotesk",sans-serif;font-size:18px;margin:0 0 8px;}
+  .pillar p{color:var(--muted);font-size:15px;margin:0;}
+  .pillar .ico{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);margin-bottom:10px;}
+
+  /* tech table */
+  table.tech{width:100%;border-collapse:collapse;font-size:15px;}
+  table.tech td{padding:13px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.tech tr:last-child td{border-bottom:none;}
+  table.tech td.area{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);width:38%;white-space:nowrap;}
+  table.tech td.tools{font-weight:500;}
+  .tag-soon{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#9A6A00;background:#FBF1DA;border:1px solid #F0DDA8;padding:2px 7px;border-radius:5px;margin-left:6px;white-space:nowrap;}
+
+  /* projects */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:640px){.cards{grid-template-columns:1fr;}}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;transition:transform .15s ease,box-shadow .15s ease;display:flex;flex-direction:column;}
+  .pcard:hover{transform:translateY(-3px);box-shadow:0 10px 30px -16px rgba(20,32,43,.25);}
+  .pcard .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--signal);margin-bottom:10px;}
+  .pcard h3{font-family:"Space Grotesk",sans-serif;font-size:18px;margin:0 0 8px;}
+  .pcard p{color:var(--muted);font-size:15px;margin:0 0 14px;flex:1;}
+  .pcard .stack{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);}
+
+  .contact-line{font-family:"IBM Plex Mono",monospace;font-size:15px;}
+  .contact-line a{color:var(--accent);text-decoration:none;}
+  .contact-line a:hover{text-decoration:underline;}
+  .avail{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);margin-top:14px;}
+  footer{padding:30px 0 60px;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:12px;}
+
+  [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    [data-reveal]{opacity:1;transform:none;transition:none;}
+    .btn:hover,.pcard:hover{transform:none;}
+    .status .dot{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">-- vignesh v / data &amp; analytics engineer</p>
+    <!-- EDIT: status -->
+    <span class="status"><span class="dot"></span> Open to work · immediate joiner · open to relocation</span>
+    <!-- EDIT: headline -->
+    <h1>I build the pipelines <span class="hl">and the dashboards leaders decide with.</span></h1>
+    <!-- EDIT: honest subline — keeps real tools present-tense, Airflow/dbt as in-progress -->
+    <p class="lede">Data &amp; Analytics Engineer, ~5 years across Indeed and TCS. I work across the stack — Python and SQL for ingestion and transformation, Snowflake for warehousing, and Tableau / Power BI reports the C-suite actually opens. Now extending into Airflow, dbt, and CI/CD, and building it in public. Madras Institute of Technology alumnus.</p>
+    <div class="actions">
+      <!-- EDIT: links -->
+      <a class="btn primary" href="https://github.com/vigneshv-analytics" target="_blank" rel="noopener">View GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/vignesh-v-186993196" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="mailto:venkatachalamvignesh23@gmail.com">Email me</a>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT I DO -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 01 / what i do</p>
+    <h2>What I do</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="ico">[ pipelines ]</div>
+        <h3>Build pipelines that don't break</h3>
+        <p>End-to-end ETL/ELT with Python and SQL, landing clean, tested data in Snowflake.</p>
+      </div>
+      <div class="pillar">
+        <div class="ico">[ decisions ]</div>
+        <h3>Turn data into decisions</h3>
+        <p>Tableau and Power BI reporting for stakeholders up to CEO level — used in the meeting, not screenshotted once and forgotten.</p>
+      </div>
+      <div class="pillar">
+        <div class="ico">[ scale ]</div>
+        <h3>Work at global scale</h3>
+        <p>Cross-functional teams across time zones and markets, on tight, high-visibility timelines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 02 / tech i work with</p>
+    <h2>Tech I work with</h2>
+    <table class="tech">
+      <tr><td class="area">languages</td><td class="tools">Python · SQL</td></tr>
+      <tr><td class="area">warehouse</td><td class="tools">Snowflake</td></tr>
+      <tr><td class="area">bi &amp; reporting</td><td class="tools">Tableau · Power BI</td></tr>
+      <tr><td class="area">orchestration &amp; transform</td><td class="tools">Apache Airflow · dbt <span class="tag-soon">building now</span></td></tr>
+      <tr><td class="area">devops</td><td class="tools">Git · GitHub Actions / GitLab CI/CD <span class="tag-soon">building now</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CURRENTLY BUILDING -->
+<section>
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 03 / currently building</p>
+    <h2>Currently building</h2>
+    <div class="cards">
+      <div class="pcard">
+        <span class="tag">&#9679; in progress</span>
+        <h3>End-to-end ELT pipeline</h3>
+        <p>Ingest from a public API, transform in dbt, land in Snowflake, orchestrate in Airflow, deploy via CI/CD.</p>
+        <span class="stack">api → snowflake → dbt → airflow → ci/cd</span>
+      </div>
+      <div class="pcard">
+        <span class="tag">&#9679; in progress</span>
+        <h3>Executive BI dashboard</h3>
+        <p>An interactive Tableau Public dashboard on top of a clean Snowflake data model.</p>
+        <span class="stack">snowflake → tableau public</span>
+      </div>
+      <div class="pcard">
+        <span class="tag">&#9679; in progress</span>
+        <h3>Data quality layer</h3>
+        <p>dbt tests + freshness checks that stop bad data before it reaches stakeholders.</p>
+        <span class="stack">dbt tests · source freshness</span>
+      </div>
+    </div>
+    <p class="avail" style="margin-top:18px;">Repos and write-ups landing here soon — I write up the <em>why</em> behind each project, not just the code.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section style="border-bottom:none;">
+  <div class="wrap" data-reveal>
+    <p class="eyebrow">-- 04 / contact</p>
+    <h2>Hiring, or know someone who is?</h2>
+    <p class="contact-line">
+      <a href="mailto:venkatachalamvignesh23@gmail.com">venkatachalamvignesh23@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/vignesh-v-186993196" target="_blank" rel="noopener">linkedin.com/in/vignesh-v</a><br>
+      <a href="https://github.com/vigneshv-analytics" target="_blank" rel="noopener">github.com/vigneshv-analytics</a>
+    </p>
+    <p class="avail">Open to: Data Engineer · Analytics Engineer · BI Analyst &nbsp;|&nbsp; immediate joiner · open to relocation · global time zones</p>
+  </div>
+</section>
+
+<footer><div class="wrap">&copy; 2026 Vignesh V — built with a text editor and GitHub Pages.</div></footer>
+
+<script>
+  const els = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  } else { els.forEach(el=>el.classList.add('in')); }
+</script>
+</body>
+</html>
